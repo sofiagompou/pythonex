@@ -1,0 +1,11 @@
+import collections, string, time
+arxeio=input("Δώστε όνομα ενός αρχείου κειμένου μαζί με την επέκταση (π.χ. example.txt)\n")
+file = open(arxeio, "r+") 
+keimeno = file.read()
+katametrisi = collections.Counter(keimeno)
+x = ''.join(sorted(set(keimeno).intersection(string.ascii_lowercase), key=katametrisi.get))
+apotelesma = keimeno.translate(x.maketrans(x, x[::-1]))
+apotelesma = apotelesma.upper()
+print(apotelesma) 
+file.close()
+time.sleep(90)
